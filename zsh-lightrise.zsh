@@ -7,6 +7,9 @@ zstyle ":vcs_info:git:*" check-for-changes true
 zstyle ":vcs_info:git:*" stagedstr "%F{green}+%f"
 zstyle ":vcs_info:git:*" unstagedstr "%F{red}*%f"
 
+# Rebase format
+zstyle ":vcs_info:git:*" patch-format " %n/%a"
+
 # Check whether the current branch has diverged from its remote branch
 zstyle ":vcs_info:git*+set-message:*" hooks git-status
 function +vi-git-status() {
