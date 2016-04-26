@@ -25,7 +25,6 @@ zstyle ":vcs_info:git:*" formats "$git_format"
 zstyle ":vcs_info:git:*" actionformats "$git_format [%a]"
 
 # Full prompt format
-precmd() {
-    vcs_info
-    PROMPT="%F{white}%B--- %2~%f%b${vcs_info_msg_0_} %F{white}%B>%f%b "
-}
+setopt PROMPT_SUBST  # Note: only works with single quotes
+precmd() { vcs_info }
+PROMPT='%F{white}%B--- %2~%f%b${vcs_info_msg_0_} %F{white}%B>%f%b '
