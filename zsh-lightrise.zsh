@@ -15,12 +15,12 @@ zstyle ":vcs_info:git*+set-message:*" hooks git-status
 function +vi-git-status() {
     # Check whether the current branch has diverged from its remote branch
     origin="$(git rev-parse "@{u}" 2>/dev/null)"
-    if [[ "$origin" && "$origin" != "$(git rev-parse @)" ]]; then
+    if [ "$origin" ] && [ "$origin" != "$(git rev-parse @)" ]; then
         hook_com[misc]="%F{blue}#%f"
     fi
 
     # Check untracked files with unstaged files
-    if [[ "$(git ls-files --exclude-standard --others)" ]]; then
+    if [ "$(git ls-files --exclude-standard --others)" ]; then
         zstyle -s ":vcs_info:git:*" unstagedstr unstagedstr
         hook_com[unstaged]="$unstagedstr"
     fi
